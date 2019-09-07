@@ -16,8 +16,9 @@ class controller_produto extends Controller
         $cat = new categoria();
         $categorias = $cat::all();
 
-        return view('produtos', compact('buscaProdutos','categorias'));
+        return view('produtos', compact('buscaProdutos', 'categorias'));
     }
+
     public function index()
     {
         $produtos = new produto();
@@ -25,46 +26,47 @@ class controller_produto extends Controller
 
         return $buscaProdutos->toJson();
     }
+
     public function create()
     {
         $cat = new categoria();
         $categorias = $cat::all();
         return view('novoProduto', compact('categorias'));
     }
+
     public function store(Request $request)
     {
         $produto = new produto();
-        $produto->nome = $request->input('nomeProduto');
-        $produto->preco = $request->input('precoProduto');
-        $produto->estoque = $request->input('estoqueProduto');
-        $produto->id_categoria = $request->input('categoriaProduto');
+        $produto->nome = $request->input('nome');
+        $produto->preco = $request->input('preco');
+        $produto->estoque = $request->input('estoque');
+        $produto->id_categoria = $request->input('id_categoria');
         $produto->save();
 
-        $cat = new categoria();
-        $categorias = $cat::all();
-
-        $buscaProdutos = $produto::all();
-        return view('categorias', compact('buscaProdutos','categorias'));
+        return json_encode($produto);
     }
+
     public function show($id)
     {
         //
     }
+
     public function edit($id)
     {
         //
     }
+
     public function update(Request $request, $id)
     {
         //
     }
+
     public function destroy($id)
     {
         $produtos = produto::all();
         $produto = $produtos->find($id);
-        if (isset($id)){
+        if (isset($produto)) {
             $produto->delete();
         }
-        redirect('/produtos');
     }
 }

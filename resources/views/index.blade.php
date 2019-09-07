@@ -19,7 +19,7 @@
 
                         <h5 class="card-title">Cadastro categorias</h5>
                         <p class="card-text">Formulário para cadastro de categorias</p>
-                        <a href="/categoria" class="btn btn-primary">Cadastro</a>
+                        <a href="/categorias" class="btn btn-primary">Cadastro</a>
 
                     </div>
                 </div>

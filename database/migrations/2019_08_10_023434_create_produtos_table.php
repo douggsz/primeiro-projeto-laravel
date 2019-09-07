@@ -21,6 +21,7 @@ class CreateProdutosTable extends Migration
             $table->float('preco');
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
+            $table->softDeletes();
         });
     }
 
