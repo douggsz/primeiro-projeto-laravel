@@ -8,7 +8,7 @@
                 <div class="card border border-primary">
                     <div class="card-body">
 
-                        <h5 class="card-title">Cadastro Produtos</h5>
+                        <h3 class="card-title">Cadastro Produtos</h3>
                         <p class="card-text">Formulário para cadastro de produtos</p>
                         <a href="/produtos" class="btn btn-primary">Cadastro</a>
 
@@ -17,7 +17,7 @@
                 <div class="card border border-primary">
                     <div class="card-body">
 
-                        <h5 class="card-title">Cadastro categorias</h5>
+                        <h3 class="card-title">Cadastro categorias</h3>
                         <p class="card-text">Formulário para cadastro de categorias</p>
                         <a href="/categorias" class="btn btn-primary">Cadastro</a>
 

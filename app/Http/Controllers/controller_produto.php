@@ -42,13 +42,19 @@ class controller_produto extends Controller
         $produto->estoque = $request->input('estoque');
         $produto->id_categoria = $request->input('id_categoria');
         $produto->save();
-
         return json_encode($produto);
     }
 
     public function show($id)
     {
-        //
+        $produtos = produto::all();
+        $produto = $produtos->find($id);
+
+        if (isset($produto)) {
+            return json_encode($produto);
+        } else {
+            return response("Não encontrado", 404);
+        }
     }
 
     public function edit($id)
@@ -58,15 +64,32 @@ class controller_produto extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $produtos = produto::all();
+        $produto = $produtos->find($id);
+
+        if (isset($produto)) {
+            $produto->nome = $request->input('nome');
+            $produto->preco = $request->input('preco');
+            $produto->estoque = $request->input('estoque');
+            $produto->id_categoria = $request->input('id_categoria');
+            $produto->save();
+            return json_encode($produto);
+        } else {
+            return response("Não encontrado", 404);
+        }
+
     }
 
     public function destroy($id)
     {
         $produtos = produto::all();
         $produto = $produtos->find($id);
+
         if (isset($produto)) {
             $produto->delete();
+            return response("OK", 200);
+        } else {
+            return response("Não encontrado", 404);
         }
     }
 }

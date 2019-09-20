@@ -4,13 +4,8 @@
     <list default="true" id="beecd334-2a04-43d2-84c2-242537aecd21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/controller_produto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/controller_produto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/categoria.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/produto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/produto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_023308_create_categorias_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_023308_create_categorias_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_10_023434_create_produtos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_023434_create_produtos_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/produtos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/produtos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +115,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../projeto-sharing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -168,6 +163,9 @@
       <workItem from="1567794746419" duration="8046000" />
       <workItem from="1567887664642" duration="200000" />
       <workItem from="1567888266722" duration="3883000" />
+      <workItem from="1568078910698" duration="192000" />
+      <workItem from="1568142886198" duration="36000" />
+      <workItem from="1569010088938" duration="5958000" />
     </task>
     <servers />
   </component>

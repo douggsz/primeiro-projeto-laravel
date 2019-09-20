@@ -81,6 +81,7 @@
             $('#nomeProduto').val('');
             $('#estoqueProduto').val('');
             $('#precoProduto').val('');
+            $('#categoriaProduto').val('');
             $('#divProdutos').modal();
         }
 
@@ -105,21 +106,49 @@
         }
 
         $('#formProdutos').submit(function (event) {
-
             event.preventDefault();
-            produto = criaProduto();
-            salvaBanco(produto)
-
-        })
+            if ($('#id').val() != '') {
+                salvaBanco();
+                $('#divProdutos').modal('hide');
+            } else {
+                criaProduto();
+            }
+        });
 
         function salvaBanco(objeto) {
-            $.post('/api/produtos', objeto, function (produto) {
 
-                prod = JSON.parse(produto)
-                $('#tabelaProdutos>tbody').append(montaLinha(prod))
+            prod = {
+                id: $('#id').val(),
+                nome: $('#nomeProduto').val(),
+                preco: $('#precoProduto').val(),
+                estoque: $('#estoqueProduto').val(),
+                id_categoria: $('#categoriaProduto').val()
+            }
 
-            })
-            $('#divProdutos').modal('hide')
+            $.ajax({
+                type: "PUT",
+                url: "/api/produtos/" + prod.id,
+                context: this,
+                data: prod,
+                success: function (data) {
+                    linhas = $('#tabelaProdutos>tbody>tr');
+                    e = linhas.filter(function (id, elemento) {
+                        return elemento.cells[0].textContent == prod.id;
+                    })
+                    if (e) {
+                            e[0].cells[0].textContent = prod.id;
+                            e[0].cells[1].textContent = prod.nome;
+                            e[0].cells[2].textContent = prod.preco;
+                            e[0].cells[3].textContent = prod.estoque;
+                            e[0].cells[4].textContent = prod.id_categoria;
+                    }
+                    console.log('OK');
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
         }
 
         function criaProduto() {
@@ -131,7 +160,13 @@
                 id_categoria: $('#categoriaProduto').val()
             }
 
-            return prod;
+            $.post('/api/produtos', prod, function (produto) {
+
+                prod = JSON.parse(produto)
+                $('#tabelaProdutos>tbody').append(montaLinha(prod))
+
+            })
+            $('#divProdutos').modal('hide')
 
         }
 
@@ -155,6 +190,17 @@
                     console.log(error);
                 }
             });
+        }
+
+        function editarProduto(id) {
+            $.getJSON('/api/produtos/' + id, function (produto) {
+                $('#id').val(produto.id);
+                $('#nomeProduto').val(produto.nome);
+                $('#estoqueProduto').val(produto.estoque);
+                $('#precoProduto').val(produto.preco);
+                $('#categoriaProduto').val(produto.id_categoria);
+                $('#divProdutos').modal('show');
+            })
         }
 
         function montaLinha(p) {
